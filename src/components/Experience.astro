@@ -1,0 +1,473 @@
+---
+const highlights = [
+  "Built and evolved production-grade platforms focused on real-time data and telemetry workflows",
+  "Designed resilient systems for low-connectivity environments",
+  "Optimized backend processing from minutes to under 5 seconds",
+  "Migrated polling-based communication to event-driven flows, significantly reducing data consumption",
+  "Maintained CI/CD pipelines for reliable deployments",
+  "Currently delivering backend services using .NET 8",
+];
+---
+
+<section class="experience" id="experience">
+  <div class="container">
+    <div class="section-title" data-animate>
+      <h2>Professional Experience</h2>
+      <p>Building software that powers real-world applications</p>
+    </div>
+
+    <div class="experience-content" data-animate>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="experience-card">
+          <div class="timeline-dot">
+            <div class="dot-inner"></div>
+          </div>
+
+          <div class="card-content">
+            <div class="card-header">
+              <div class="card-title">
+                <h3>Senior Software Engineer</h3>
+                <span class="badge-current">Current Role</span>
+              </div>
+              <div class="card-meta">
+                <span class="timeframe">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"
+                    ></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                  </svg>
+                  2019 — Present
+                </span>
+                <span class="location">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                    ></path>
+                  </svg>
+                  Remote
+                </span>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <ul class="highlights-list">
+                {
+                  highlights.map((highlight) => (
+                    <li>
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      <span>{highlight}</span>
+                    </li>
+                  ))
+                }
+              </ul>
+
+              <div class="tech-used">
+                <span class="tech-label">Technologies:</span>
+                <div class="tech-tags">
+                  <span class="tech-tag">.NET 8</span>
+                  <span class="tech-tag">Node.js</span>
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">Redis</span>
+                  <span class="tech-tag">AWS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Previous Experience summary -->
+        <div class="experience-summary">
+          <div class="timeline-dot dot-past">
+            <div class="dot-inner"></div>
+          </div>
+          <div class="summary-content">
+            <h4>Earlier Experience</h4>
+            <p>2013 — 2019</p>
+            <span class="summary-text">
+              Progressive roles from Junior Developer to Senior, building
+              foundations in full-stack development, database design, and
+              software architecture across various industries.
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Side stats -->
+      <div class="experience-stats">
+        <div class="stat-item">
+          <div class="stat-number">11+</div>
+          <div class="stat-text">Years of<br />Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5+</div>
+          <div class="stat-text">Years<br />Remote</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">∞</div>
+          <div class="stat-text">Problems<br />Solved</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .experience {
+    position: relative;
+  }
+
+  .experience::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    right: -10%;
+    width: 40%;
+    height: 40%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(99, 102, 241, 0.08) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
+  }
+
+  .experience-content {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .timeline {
+    position: relative;
+  }
+
+  .timeline-line {
+    position: absolute;
+    left: 11px;
+    top: 24px;
+    bottom: 24px;
+    width: 2px;
+    background: linear-gradient(
+      to bottom,
+      var(--accent-primary),
+      var(--border-color)
+    );
+  }
+
+  .timeline-dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 24px;
+    height: 24px;
+    background: var(--bg-primary);
+    border: 2px solid var(--accent-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .dot-inner {
+    width: 10px;
+    height: 10px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .dot-past .dot-inner {
+    background: var(--text-muted);
+    animation: none;
+  }
+
+  .dot-past {
+    border-color: var(--text-muted);
+  }
+
+  .experience-card {
+    position: relative;
+    padding-left: 48px;
+    margin-bottom: 48px;
+  }
+
+  .card-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 32px;
+    backdrop-filter: blur(20px);
+    transition: all var(--transition-base);
+  }
+
+  .card-content:hover {
+    border-color: var(--border-glow);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .card-header {
+    margin-bottom: 24px;
+  }
+
+  .card-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .card-title h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .badge-current {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--success);
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .card-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .card-meta svg {
+    stroke: var(--text-muted);
+  }
+
+  .highlights-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .highlights-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .highlights-list svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    stroke: var(--success);
+  }
+
+  .tech-used {
+    padding-top: 24px;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .tech-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tech-tag {
+    padding: 6px 14px;
+    background: var(--bg-tertiary);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+  }
+
+  .tech-tag:hover {
+    background: rgba(99, 102, 241, 0.15);
+    color: var(--accent-primary);
+  }
+
+  /* Experience Summary (Earlier) */
+  .experience-summary {
+    position: relative;
+    padding-left: 48px;
+  }
+
+  .summary-content {
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    backdrop-filter: blur(20px);
+  }
+
+  .summary-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .summary-content p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+
+  .summary-text {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Side Stats */
+  .experience-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: sticky;
+    top: 120px;
+  }
+
+  .stat-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    transition: all var(--transition-base);
+  }
+
+  .stat-item:hover {
+    border-color: var(--border-glow);
+    transform: translateY(-2px);
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.7;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .experience-content {
+      grid-template-columns: 1fr;
+    }
+
+    .experience-stats {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: static;
+      margin-top: 40px;
+    }
+
+    .stat-item {
+      flex: 1;
+      min-width: 140px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .experience-card {
+      padding-left: 40px;
+    }
+
+    .card-content {
+      padding: 24px;
+    }
+
+    .card-title h3 {
+      font-size: 1.25rem;
+    }
+
+    .timeline-line {
+      left: 9px;
+    }
+
+    .timeline-dot {
+      width: 20px;
+      height: 20px;
+    }
+
+    .dot-inner {
+      width: 8px;
+      height: 8px;
+    }
+  }
+</style>

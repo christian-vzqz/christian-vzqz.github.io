@@ -1,0 +1,231 @@
+---
+// Terminal component with macOS style window
+---
+
+<div class="terminal">
+  <div class="terminal-header">
+    <div class="terminal-buttons">
+      <span class="btn-close"></span>
+      <span class="btn-minimize"></span>
+      <span class="btn-maximize"></span>
+    </div>
+    <div class="terminal-title">christian@portfolio ~ </div>
+    <div class="terminal-spacer"></div>
+  </div>
+
+  <div class="terminal-body">
+    <div class="terminal-line line-1">
+      <span class="prompt">$</span>
+      <span class="command" data-text="sudo execute innovation.sh"></span>
+      <span class="cursor"></span>
+    </div>
+    <div class="terminal-line line-2">
+      <span class="output">&gt; Full Stack Engineering | Problem Solver | Innovation</span>
+    </div>
+    <div class="terminal-line line-3">
+      <span class="output">&gt; Node.js | Python | AWS | .NET 8</span>
+    </div>
+    <div class="terminal-line line-4">
+      <span class="output">&gt; Event-driven systems | CI/CD | Data platforms</span>
+    </div>
+    <div class="terminal-line line-5">
+      <span class="output status">&gt; status: <span class="success">ready_for_remote_work</span></span>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Typing animation
+  function typeWriter(element: HTMLElement, text: string, speed: number = 50, callback?: () => void) {
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      } else if (callback) {
+        callback();
+      }
+    }
+    type();
+  }
+
+  function initTerminal() {
+    const command = document.querySelector('.command') as HTMLElement;
+    const cursor = document.querySelector('.cursor') as HTMLElement;
+    const lines = document.querySelectorAll('.terminal-line');
+
+    // Hide all lines initially except first
+    lines.forEach((line, index) => {
+      if (index > 0) {
+        (line as HTMLElement).style.opacity = '0';
+        (line as HTMLElement).style.transform = 'translateY(10px)';
+      }
+    });
+
+    // Start typing animation after a delay
+    setTimeout(() => {
+      if (command) {
+        const text = command.getAttribute('data-text') || '';
+        typeWriter(command, text, 60, () => {
+          // After command is typed, show output lines one by one
+          if (cursor) cursor.style.display = 'none';
+
+          lines.forEach((line, index) => {
+            if (index > 0) {
+              setTimeout(() => {
+                (line as HTMLElement).style.transition = 'all 0.4s ease';
+                (line as HTMLElement).style.opacity = '1';
+                (line as HTMLElement).style.transform = 'translateY(0)';
+              }, index * 400);
+            }
+          });
+        });
+      }
+    }, 800);
+  }
+
+  // Run animation when terminal is visible
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        initTerminal();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  const terminal = document.querySelector('.terminal');
+  if (terminal) observer.observe(terminal);
+</script>
+
+<style>
+  .terminal {
+    width: 100%;
+    max-width: 580px;
+    background: rgba(17, 17, 24, 0.95);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      0 0 60px rgba(99, 102, 241, 0.15);
+    backdrop-filter: blur(20px);
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .terminal-header {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(30, 30, 40, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .terminal-buttons {
+    display: flex;
+    gap: 8px;
+  }
+
+  .terminal-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .btn-close {
+    background: #ff5f57;
+    box-shadow: 0 0 8px rgba(255, 95, 87, 0.4);
+  }
+
+  .btn-minimize {
+    background: #febc2e;
+    box-shadow: 0 0 8px rgba(254, 188, 46, 0.4);
+  }
+
+  .btn-maximize {
+    background: #28c840;
+    box-shadow: 0 0 8px rgba(40, 200, 64, 0.4);
+  }
+
+  .terminal-title {
+    flex: 1;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  .terminal-spacer {
+    width: 52px;
+  }
+
+  .terminal-body {
+    padding: 20px 24px;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  .terminal-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 24px;
+  }
+
+  .prompt {
+    color: var(--terminal-green);
+    font-weight: 600;
+  }
+
+  .command {
+    color: var(--text-primary);
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 18px;
+    background: var(--terminal-green);
+    animation: blink 1s step-end infinite;
+  }
+
+  .output {
+    color: var(--text-secondary);
+  }
+
+  .output .success {
+    color: var(--terminal-green);
+    font-weight: 500;
+  }
+
+  .status {
+    color: var(--text-muted);
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-8px) rotate(0.5deg);
+    }
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  @media (max-width: 640px) {
+    .terminal {
+      max-width: 100%;
+    }
+
+    .terminal-body {
+      padding: 16px;
+      font-size: 0.8rem;
+    }
+  }
+</style>

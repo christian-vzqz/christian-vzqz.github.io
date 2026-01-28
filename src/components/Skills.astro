@@ -1,0 +1,266 @@
+---
+const skillCategories = [
+  {
+    title: 'Backend',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
+    skills: [
+      'Node.js',
+      'Python',
+      '.NET 8 / C#',
+      'REST APIs',
+      'Event-driven patterns'
+    ]
+  },
+  {
+    title: 'Frontend',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>`,
+    skills: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'Data visualization',
+      'Responsive interfaces'
+    ]
+  },
+  {
+    title: 'Cloud & DevOps',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>`,
+    skills: [
+      'AWS (EC2, S3, RDS, Lambda, ECS)',
+      'Docker',
+      'GitHub Actions',
+      'CI/CD Pipelines',
+      'Infrastructure automation'
+    ]
+  },
+  {
+    title: 'Databases',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>`,
+    skills: [
+      'PostgreSQL',
+      'MySQL',
+      'MongoDB',
+      'Redis',
+      'Query optimization'
+    ]
+  }
+];
+
+const workingStyle = [
+  { label: 'Ownership mindset', icon: '🎯' },
+  { label: 'Code reviews', icon: '👁️' },
+  { label: 'Incremental delivery', icon: '🚀' },
+  { label: 'Technical estimation', icon: '📊' }
+];
+---
+
+<section class="skills" id="skills">
+  <div class="container">
+    <div class="section-title" data-animate>
+      <h2>Tech Stack & Skills</h2>
+      <p>Technologies and tools I use to build production-grade software</p>
+    </div>
+
+    <div class="skills-grid">
+      {skillCategories.map((category, index) => (
+        <div class="skill-card" data-animate style={`--delay: ${index * 0.1}s`}>
+          <div class="skill-icon" set:html={category.icon} />
+          <h3>{category.title}</h3>
+          <ul class="skill-list">
+            {category.skills.map(skill => (
+              <li>{skill}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="working-style" data-animate>
+      <h3>Ways of Working</h3>
+      <div class="style-tags">
+        {workingStyle.map(item => (
+          <div class="style-tag">
+            <span class="style-icon">{item.icon}</span>
+            <span>{item.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills {
+    background: var(--bg-secondary);
+    position: relative;
+  }
+
+  .skills::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+  }
+
+  .skills::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+
+  .skill-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 32px;
+    backdrop-filter: blur(20px);
+    transition: all var(--transition-base);
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .skill-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: var(--delay);
+  }
+
+  .skill-card:hover {
+    border-color: var(--border-glow);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg), 0 0 40px rgba(99, 102, 241, 0.1);
+  }
+
+  .skill-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-gradient);
+    border-radius: 14px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+  }
+
+  .skill-icon :global(svg) {
+    stroke: white;
+  }
+
+  .skill-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .skill-list li {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .skill-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .working-style {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    backdrop-filter: blur(20px);
+  }
+
+  .working-style h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+  }
+
+  .style-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .style-tag {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 100px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: all var(--transition-base);
+  }
+
+  .style-tag:hover {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+  }
+
+  .style-icon {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 1024px) {
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .skill-card {
+      padding: 24px;
+    }
+
+    .style-tags {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .style-tag {
+      justify-content: center;
+    }
+  }
+</style>

@@ -1,0 +1,278 @@
+---
+// About section component
+---
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-content" data-animate>
+      <div class="about-image">
+        <div class="image-frame">
+          <img src="/profile.webp" alt="Christian Vazquez - Senior Software Engineer" class="profile-image" />
+          <div class="image-glow"></div>
+        </div>
+        <div class="floating-badge top-right">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <span>Available</span>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <div class="section-label">About Me</div>
+        <h2>Crafting Software<br/><span class="text-gradient">That Scales</span></h2>
+
+        <p class="about-description">
+          Senior Software Engineer with <strong>11+ years of experience</strong> building, scaling, and optimizing production systems for data-intensive and mission-critical applications.
+        </p>
+
+        <p class="about-description">
+          Strong background in <strong>backend development</strong>, cloud-native solutions on <strong>AWS</strong>, and modern web applications using <strong>React and Next.js</strong>. Experienced working remotely with US-based teams, focused on reliability, performance, and clean code.
+        </p>
+
+        <div class="about-highlights">
+          <div class="highlight">
+            <div class="highlight-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Full-Stack Expertise</h4>
+              <p>From database design to polished interfaces</p>
+            </div>
+          </div>
+
+          <div class="highlight">
+            <div class="highlight-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Remote Ready</h4>
+              <p>Experienced with US-based distributed teams</p>
+            </div>
+          </div>
+
+          <div class="highlight">
+            <div class="highlight-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+            </div>
+            <div>
+              <h4>Performance Focused</h4>
+              <p>Optimizing systems for speed and reliability</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20%;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-image {
+    position: relative;
+  }
+
+  .image-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+  }
+
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(10%) contrast(1.05);
+    transition: all var(--transition-base);
+  }
+
+  .image-frame:hover .profile-image {
+    filter: grayscale(0%) contrast(1.1);
+    transform: scale(1.03);
+  }
+
+  .image-glow {
+    position: absolute;
+    inset: -50%;
+    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.3) 0%, transparent 50%);
+    pointer-events: none;
+    animation: glow 4s ease-in-out infinite;
+  }
+
+  @keyframes glow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+  }
+
+  .floating-badge {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: rgba(17, 17, 24, 0.95);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--success);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .floating-badge svg {
+    stroke: var(--success);
+  }
+
+  .floating-badge.top-right {
+    top: -16px;
+    right: -16px;
+  }
+
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .section-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .about-text h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    line-height: 1.2;
+  }
+
+  .about-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .about-description strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .about-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 16px;
+  }
+
+  .highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .highlight-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(99, 102, 241, 0.1);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .highlight-icon svg {
+    stroke: var(--accent-primary);
+  }
+
+  .highlight h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .highlight p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 1024px) {
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .about-image {
+      max-width: 350px;
+      margin: 0 auto;
+    }
+
+    .about-text {
+      text-align: center;
+      align-items: center;
+    }
+
+    .about-highlights {
+      align-items: center;
+    }
+
+    .highlight {
+      max-width: 360px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .initials {
+      font-size: 4rem;
+    }
+
+    .floating-badge.top-right {
+      top: -12px;
+      right: -8px;
+      padding: 10px 14px;
+      font-size: 0.85rem;
+    }
+  }
+</style>
