@@ -75,6 +75,16 @@ const workingStyle = [
       ))}
     </div>
 
+    <div class="secondary-skills" data-animate>
+      <h4>Also worked with</h4>
+      <div class="secondary-tags">
+        <span>Go</span>
+        <span>Java</span>
+        <span>Azure</span>
+        <span>Google Cloud Platform</span>
+      </div>
+    </div>
+
     <div class="working-style" data-animate>
       <h3>Ways of Working</h3>
       <div class="style-tags">
@@ -119,7 +129,45 @@ const workingStyle = [
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+  }
+
+  /* Secondary Skills */
+  .secondary-skills {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .secondary-skills h4 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .secondary-tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .secondary-tags span {
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: all var(--transition-base);
+  }
+
+  .secondary-tags span:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: var(--text-secondary);
   }
 
   .skill-card {

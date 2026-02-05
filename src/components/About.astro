@@ -24,11 +24,11 @@
         <h2>Crafting Software<br/><span class="text-gradient">That Scales</span></h2>
 
         <p class="about-description">
-          Senior Software Engineer with <strong>11+ years of experience</strong> building, scaling, and optimizing production systems for data-intensive and mission-critical applications.
+          Senior Software Engineer with <strong>10+ years of experience</strong> building, scaling, and optimizing production systems for data-intensive and mission-critical applications.
         </p>
 
         <p class="about-description">
-          Strong background in <strong>backend development</strong>, cloud-native solutions on <strong>AWS</strong>, and modern web applications using <strong>React and Next.js</strong>. Experienced working remotely with US-based teams, focused on reliability, performance, and clean code.
+          Strong background in <strong>backend development</strong>, cloud-native solutions on <strong>AWS</strong>, and modern web applications using <strong>React and Next.js</strong>. Experienced working remotely with US-based teams, focused on reliability, performance, and clean code. Leveraging AI tools to accelerate development while maintaining strict quality standards and technical ownership.
         </p>
 
         <div class="about-highlights">
@@ -71,6 +71,14 @@
               <p>Optimizing systems for speed and reliability</p>
             </div>
           </div>
+        </div>
+
+        <div class="soft-skills">
+          <span class="soft-skill-tag">📚 Self-learner</span>
+          <span class="soft-skill-tag">🧩 Problem Solver</span>
+          <span class="soft-skill-tag">🔄 Continuous Improvement</span>
+          <span class="soft-skill-tag">⚡ Fast Learner</span>
+          <span class="soft-skill-tag">🤖 AI-Augmented Workflow</span>
         </div>
       </div>
     </div>
@@ -263,6 +271,39 @@
     }
   }
 
+  /* Soft Skills Tags */
+  .soft-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .soft-skill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: rgba(99, 102, 241, 0.06);
+    border: 1px solid rgba(99, 102, 241, 0.12);
+    border-radius: 100px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: all var(--transition-base);
+  }
+
+  .soft-skill-tag:hover {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: rgba(99, 102, 241, 0.2);
+  }
+
+  @media (max-width: 1024px) {
+    .soft-skills {
+      justify-content: center;
+    }
+  }
+
   @media (max-width: 640px) {
     .initials {
       font-size: 4rem;
@@ -273,6 +314,11 @@
       right: -8px;
       padding: 10px 14px;
       font-size: 0.85rem;
+    }
+
+    .soft-skill-tag {
+      padding: 6px 12px;
+      font-size: 0.8rem;
     }
   }
 </style>
